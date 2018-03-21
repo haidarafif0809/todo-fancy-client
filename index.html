@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width" />
     <title>Todo Fancy</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.min.css" type="text/css" >
   </head>
   <body>
     <div id="vue-app" >
       <app-nav :login="isLogin"></app-nav>
       <div class="container" style="margin-top:20px">
         <app-login v-if="!isLogin"></app-login>
+        <app-search-trip v-if="isLogin" @save-flight="moveToForm"></app-search-trip>
         <div class="row" v-if="isLogin">
           <todo-form @create-todo="getTodos" :todo="todo" :edit="isEdit"></todo-form>
           <div class="col-md-3 ">
@@ -39,6 +41,7 @@
     <!-- end of vue app -->
     <div id="fb-root"></div>
     <script src="/js/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.min.js" charset="utf-8"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
     <script src="/js/axios-core.js"></script>
@@ -46,8 +49,12 @@
     <script src="/js/components/vue-login-page.js"></script>
     <script src="/js/components/vue-navbar.js"></script>
     <script src="/js/components/vue-todo.js"></script>
+    <script src="/js/components/vue-trip-search.js"></script>
     <script src="/js/vue-app.js"></script>
     <script src="/js/fb.js"></script>
     <script src="/js/fb-button.js"></script>
+    <script charset="utf-8">
+      
+    </script>
   </body>
 </html>

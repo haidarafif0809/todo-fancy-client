@@ -21,6 +21,12 @@ new Vue({
 
   },
   methods: {
+    moveToForm: function(payload) {
+      this.todo.title = `Flight Trip from ${payload.departure_city_name} to ${payload.arrival_city_name}`
+      this.todo.dueDate = payload.departure_flight_date
+      this.todo.description = `${payload.airlines_name} | ${payload.simple_departure_time} | ${payload.simple_arrival_time} | RP ${payload.price_value} `
+      
+    },
     checkIsLogin: function(){
       const token = localStorage.token;
       if (token != undefined) {
